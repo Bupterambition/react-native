@@ -1,0 +1,71 @@
+{
+    "name": "React",
+    "version": "0.37.0",
+    "summary": "framework_summary",
+    "description": "framework_description",
+    "homepage": "http://facebook.github.io/react-native/",
+    "license": "BSD-3-Clause",
+    "authors": "Facebook",
+    "source":
+    {
+        "git": "https://github.com/Bupterambition/react-native.git",
+        "commit": "890342ed8"
+    },
+    "requires_arc": true,
+    "platforms":
+    {
+        "ios": "8.0"
+    },
+    "preserve_paths": ["cli.js", "Libraries/**/*.js", "lint", "linter.js", "node_modules", "package.json", "packager", "PATENTS", "react-native-cli"],
+    "subspecs": [
+    {
+        "name": "Core",
+        "source_files": "React/**/*.{c,h,m,mm,S}",
+        "exclude_files": ["**/__tests__/*", "IntegrationTests/*"],
+        "frameworks": "JavaScriptCore",
+        "libraries": "stdc++",
+        "pod_target_xcconfig":
+        {
+            "CLANG_CXX_LANGUAGE_STANDARD": "c++14"
+        }
+    },
+    {
+        "name": "RCTImage",
+        "dependencies":
+        {
+            "React/Core": [],
+            "React/RCTNetwork": []
+        },
+        "source_files": "Libraries/Image/*.{h,m}",
+        "preserve_paths": "Libraries/Image/*.js"
+    },
+    {
+        "name": "RCTNetwork",
+        "dependencies":
+        {
+            "React/Core": []
+        },
+        "source_files": "Libraries/Network/*.{h,m,mm}",
+        "preserve_paths": "Libraries/Network/*.js"
+    },
+    {
+        "name": "RCTText",
+        "dependencies":
+        {
+            "React/Core": []
+        },
+        "source_files": "Libraries/Text/*.{h,m}",
+        "preserve_paths": "Libraries/Text/*.js"
+    },
+    {
+        "name": "RCTWebSocket",
+        "dependencies":
+        {
+            "React/Core": []
+        },
+        "source_files": "Libraries/WebSocket/*.{h,m}",
+        "preserve_paths": "Libraries/WebSocket/*.js"
+    }],
+    "libraries": ["stdc++"],
+    "frameworks": ["XCTest"]
+}
